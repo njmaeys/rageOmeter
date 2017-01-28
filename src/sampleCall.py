@@ -6,6 +6,6 @@ import json
 
 key = hf.get_key_file()
 
-data = rq.get('https://na.api.pvp.net/api/lol/na/v1.2/champion?api_key='+key)
+data = rq.get(rac.champion_live_data(key))
 rawData = data.json()
 print rawData
