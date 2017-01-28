@@ -1,0 +1,81 @@
+{
+   "gameLength": 0,
+   "gameMode": "CLASSIC",
+   "mapId": 11,
+   "bannedChampions": [],
+   "gameType": "CUSTOM_GAME",
+   "gameId": 2410851695,
+   "observers": {"encryptionKey": "FS3p3EfvfKhIo5KrIkZM+3QFbbwkoWru"},
+   "gameStartTime": 0,
+   "participants": [{
+      "masteries": [
+         {
+            "rank": 5,
+            "masteryId": 6111
+         },
+         {
+            "rank": 1,
+            "masteryId": 6121
+         },
+         {
+            "rank": 5,
+            "masteryId": 6131
+         },
+         {
+            "rank": 1,
+            "masteryId": 6141
+         },
+         {
+            "rank": 5,
+            "masteryId": 6151
+         },
+         {
+            "rank": 1,
+            "masteryId": 6162
+         },
+         {
+            "rank": 5,
+            "masteryId": 6312
+         },
+         {
+            "rank": 1,
+            "masteryId": 6321
+         },
+         {
+            "rank": 5,
+            "masteryId": 6331
+         },
+         {
+            "rank": 1,
+            "masteryId": 6343
+         }
+      ],
+      "bot": false,
+      "runes": [
+         {
+            "count": 9,
+            "runeId": 5245
+         },
+         {
+            "count": 9,
+            "runeId": 5289
+         },
+         {
+            "count": 9,
+            "runeId": 5317
+         },
+         {
+            "count": 3,
+            "runeId": 5337
+         }
+      ],
+      "spell2Id": 21,
+      "profileIconId": 539,
+      "summonerName": "Groundskeeper",
+      "championId": 266,
+      "teamId": 100,
+      "summonerId": 25847332,
+      "spell1Id": 4
+   }],
+   "platformId": "NA1"
+}
