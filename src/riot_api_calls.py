@@ -35,6 +35,6 @@ def championLiveData(key):
 	champion_url = ('https://na.api.pvp.net/api/lol/na/v1.2/champion?api_key='+key)
 	return champion_url
 
-def currentGame(key):
-	url = ('https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/56129387?api_key='+key)
+def currentGame(key, summonerId):
+	url = ('https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/'+summonerId+'?api_key='+key)
 	return url
