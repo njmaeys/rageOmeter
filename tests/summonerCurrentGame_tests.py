@@ -1,5 +1,5 @@
 import unittest
-import StringIO
+import json
 from src.summonerCurrentGame import *
 
 
@@ -8,4 +8,4 @@ class SummonerLiveData_test(unittest.TestCase):
     def test_getLiveData(self):
 
         result = SummonerLiveData.getLiveData('123abc', '456')
-        self.assertIsNotNone(result)
+        self.assertEqual(result["status"]["status_code"], 403)
