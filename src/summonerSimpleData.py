@@ -18,6 +18,7 @@ class SummonerData:
         summonerName = HelperFunctions.getSummonerNameFromUser()
 
         data = SummonerData.getSummonerData(apiKey, summonerName)
+        print data
 
 
 if __name__ == '__main__':
