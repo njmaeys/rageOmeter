@@ -21,7 +21,7 @@ class SummonerLiveData:
         summonerId = summonerIdRaw[summonerName]["id"]
 
         data = SummonerLiveData.getLiveData(apiKey, summonerId)
-        print data
+        return data
 
 
 if __name__ == '__main__':
