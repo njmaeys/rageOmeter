@@ -31,6 +31,17 @@ class InGameData:
 		return allEnemyData
 
 	@staticmethod
+	def getEnemyTeamChampions(enemyData):
+		enemyChampions = []
+
+		for enemy in enemyData:
+			championId = enemy["championId"]
+			enemyChampions.append(championId)
+
+		return enemyChampions
+
+
+	@staticmethod
 	def Main():
 		getLiveData = SummonerLiveData.Main()
 		summonerName = getLiveData[0]
@@ -40,10 +51,13 @@ class InGameData:
 			print "Summoner not in game."	
 		else:
 			targetSummonerData = InGameData.getTargetSummonerData(rawData, summonerName)
+			print "============ target summoner info ============" 
 			print targetSummonerData
-
 			enemyData = InGameData.getEnemyTeamData(rawData, targetSummonerData[0])
-			print enemyData
+			championIds = InGameData.getEnemyTeamChampions(enemyData)
+			print
+			print "============ enemy champion ids info ============" 
+			print championIds
 
 if __name__ == "__main__":
 
