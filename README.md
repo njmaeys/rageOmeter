@@ -6,5 +6,6 @@ Currently requires your riot api key to be placed at the root level of the proje
 
 An example of a running script is in the src directory.  
 - cd src  
-- python summonerSimpleData.py  
-- this will return a json object of simple data for the summoner you enter  
+- python parseInGameData.py  
+- this will print/return data from the current game of the summoner name you enetered  
+-- if there is not current game data will print a message stating summoner is not in game    
