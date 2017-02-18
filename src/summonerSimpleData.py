@@ -18,9 +18,10 @@ class SummonerData:
         summonerName = HelperFunctions.getSummonerNameFromUser()
 
         data = SummonerData.getSummonerData(apiKey, summonerName)
-        print data
+        
+        return data
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     SummonerData.Main()

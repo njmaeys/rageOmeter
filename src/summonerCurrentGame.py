@@ -21,9 +21,10 @@ class SummonerLiveData:
         summonerId = summonerIdRaw[summonerName]["id"]
 
         data = SummonerLiveData.getLiveData(apiKey, summonerId)
-        return data
+
+        return (summonerName, data)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     SummonerLiveData.Main()

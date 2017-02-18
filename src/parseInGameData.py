@@ -1,39 +1,50 @@
 import json
+from summonerCurrentGame import *
 
 
-# TODO pass this from the live game data api call
-summonerName = 'doubleliftfanboy'
+class InGameData:
 
-# TODO get this data from the api call not the static temp file
-rawData = open('./sample_in_game_data.json', 'r').read()
-data = json.loads(rawData)
+	@staticmethod
+	def getTargetSummonerData(summonerData, summonerName):
+		currentGameSummoners = summonerData["participants"]
+		targetData = []
 
-currentGameSummoners = data["participants"]
+		for summoner in currentGameSummoners:
+			if summoner["summonerName"].lower().replace(' ', '') == summonerName:
+				targetTeam = summoner["teamId"]
+				targetChampionId = summoner["championId"]
 
-def getTargetSummonerData(summonerData):
-	targetData = []
+				targetData.append(targetTeam)
+				targetData.append(targetChampionId)
 
-	for summoner in summonerData:
-		if summoner["summonerName"] == summonerName:
-			targetTeam = summoner["teamId"]
-			targetChampionId = summoner["championId"]
+		return targetData
 
-			targetData.append(targetTeam)
-			targetData.append(targetChampionId)
+	@staticmethod
+	def getEnemyTeamData(summonerData, targetSummonerTeamId):
+		allEnemyData = []
+		data = summonerData["participants"]
 
-	return targetData
+		for enemy in data:
+			if enemy["teamId"] != targetSummonerTeamId:
+				allEnemyData.append(enemy)
 
-targetSummonerData = getTargetSummonerData(currentGameSummoners)
-print targetSummonerData
+		return allEnemyData
 
-def getEnemyTeamData(summonerData, targetSummonerTeamId):
-	allEnemyData = []
+	@staticmethod
+	def Main():
+		getLiveData = SummonerLiveData.Main()
+		summonerName = getLiveData[0]
+		rawData = getLiveData[1]
 
-	for enemy in summonerData:
-		if enemy["teamId"] != targetSummonerTeamId:
-			allEnemyData.append(enemy)
+		if "status" in rawData:
+			print "Summoner not in game."	
+		else:
+			targetSummonerData = InGameData.getTargetSummonerData(rawData, summonerName)
+			print targetSummonerData
 
-	return allEnemyData
+			enemyData = InGameData.getEnemyTeamData(rawData, targetSummonerData[0])
+			print enemyData
 
-enemyData = getEnemyTeamData(currentGameSummoners, targetSummonerData[0])
-print enemyData
+if __name__ == "__main__":
+
+	InGameData.Main()
