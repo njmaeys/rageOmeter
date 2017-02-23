@@ -1,0 +1,19 @@
+{
+	"championIds": {
+		"39": {
+			"rageLevel": 2
+		},
+		"81": {
+			"rageLevel": 3
+		},
+		"63": {
+			"rageLevel": 9
+		},
+		"104": {
+			"rageLevel": 5
+		},
+		"101": {
+			"rageLevel": 1
+		}
+	}
+}

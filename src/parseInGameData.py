@@ -1,6 +1,7 @@
 import json
 from summonerCurrentGame import *
 
+runLocal = True
 
 class InGameData:
 
@@ -43,21 +44,27 @@ class InGameData:
 
 	@staticmethod
 	def Main():
-		getLiveData = SummonerLiveData.Main()
-		summonerName = getLiveData[0]
-		rawData = getLiveData[1]
-
-		if "status" in rawData:
-			print "Summoner not in game."	
-		else:
+		if runLocal:
+			rawData = json.load(open('../leagueCurrentGame.json'))	
+			summonerName = 'heisendong'
 			targetSummonerData = InGameData.getTargetSummonerData(rawData, summonerName)
-			print "============ target summoner info ============" 
-			print targetSummonerData
 			enemyData = InGameData.getEnemyTeamData(rawData, targetSummonerData[0])
 			championIds = InGameData.getEnemyTeamChampions(enemyData)
-			print
-			print "============ enemy champion ids info ============" 
-			print championIds
+
+			return (targetSummonerData, championIds)
+		else:
+			getLiveData = SummonerLiveData.Main()
+			summonerName = getLiveData[0]
+			rawData = getLiveData[1]
+
+			if "status" in rawData:
+				print "Summoner not in game."	
+			else:
+				targetSummonerData = InGameData.getTargetSummonerData(rawData, summonerName)
+				enemyData = InGameData.getEnemyTeamData(rawData, targetSummonerData[0])
+				championIds = InGameData.getEnemyTeamChampions(enemyData)
+
+				return (targetSummonerData, championIds)
 
 if __name__ == "__main__":
 
